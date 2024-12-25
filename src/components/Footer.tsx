@@ -58,7 +58,9 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4 text-yellow-400">Följ Oss</h3>
             <div className="flex gap-4 mb-6">
-              <a href="#" className="hover:text-yellow-400"><Facebook /></a>
+              <a href="https://www.facebook.com/profile.php?id=61571298293251" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400">
+                <Facebook />
+              </a>
               <a href="#" className="hover:text-yellow-400"><Instagram /></a>
               <a href="#" className="hover:text-yellow-400"><Linkedin /></a>
             </div>
