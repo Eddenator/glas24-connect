@@ -1,8 +1,54 @@
 import DocumentHead from '@/components/DocumentHead';
 import PageHeader from '@/components/PageHeader';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { useEffect } from 'react';
 
 const About = () => {
+  useEffect(() => {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Glas24",
+      "description": "Glas24 är en del av ett av Sveriges största nätverk av auktoriserade glasmästare, med över 750 städer i vårt nätverk.",
+      "telephone": "010-555 11 93",
+      "email": "info@glas24.se",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kungsgatan 4",
+        "addressLocality": "Göteborg",
+        "postalCode": "421 47",
+        "addressCountry": "SE"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61571298293251",
+        "https://www.linkedin.com/company/106091540"
+      ]
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       <DocumentHead 

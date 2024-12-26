@@ -1,7 +1,54 @@
 import { ArrowRight, Clock, Shield, Map } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Home = () => {
+  useEffect(() => {
+    // Add structured data
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Glas24",
+      "image": "https://s3.eu-west-1.amazonaws.com/storage.quickbutik.com/stores/28340q/files/glas.jpg",
+      "telephone": "010-555 11 93",
+      "email": "info@glas24.se",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kungsgatan 4",
+        "addressLocality": "Göteborg",
+        "postalCode": "421 47",
+        "addressCountry": "SE"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "description": "Professionell glasservice dygnet runt, året om. Vi erbjuder akut glasmästeri och glasreparationer i hela Sverige.",
+      "url": "https://glas24.se"
+    };
+
+    // Add the structured data to the page
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    // Cleanup
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
