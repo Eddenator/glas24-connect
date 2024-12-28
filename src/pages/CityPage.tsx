@@ -40,7 +40,6 @@ const CityPage = () => {
 
   const processContent = (text: string) => {
     const processedText = text.replace(/%city%/g, originalCity);
-    // Convert <h2> tags to div with the same styling as the main title
     return processedText.replace(
       /<h2>(.*?)<\/h2>/g, 
       '<div class="text-2xl font-bold mb-4">$1</div>'
@@ -51,7 +50,7 @@ const CityPage = () => {
     <div className="min-h-screen bg-white">
       <DocumentHead 
         title={`Glasmästare ${originalCity} - Jour öppen 24/7 - På plats inom 2t`}
-        description={`Professionell glasmästare i ${originalCity}. Akut glasservice med jour dygnet runt. Vi är på plats inom 2 timmar. Ring 010-555 11 93.`}
+        description={`Glasmästare ${originalCity} - 24/7 Jour - Fönsterbyte inom 2t`}
       />
       <CityHero 
         cityName={originalCity}
