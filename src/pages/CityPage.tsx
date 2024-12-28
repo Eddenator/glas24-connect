@@ -41,8 +41,8 @@ const CityPage = () => {
   const processContent = (text: string) => {
     const processedText = text.replace(/%city%/g, originalCity);
     return processedText.replace(
-      /<h2>(.*?)<\/h2>/g, 
-      '<div class="text-2xl font-bold mb-4">$1</div>'
+      /<h2>Fönsterbyte (.*?)<\/h2>/g, 
+      '<div class="text-2xl font-bold mb-4">Fönsterbyte i $1</div>'
     );
   };
 
