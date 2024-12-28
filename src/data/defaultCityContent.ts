@@ -6,7 +6,7 @@ export const defaultCityContent: CityContent = {
 
 Alltid öppet – alltid tillgängliga Vi vet att olyckor inte har några kontorstider. Därför håller vi öppet 24/7, varje dag året runt. Ett samtal till oss – och vi är på väg för att hjälpa dig.
 
-Fönsterbyte %city%
+<h2>Fönsterbyte %city%</h2>
 Vi på Glas24 erbjuder professionella tjänster för fönsterbyte i %city%. Oavsett om du vill byta ut gamla fönster för att förbättra energibesparingen, öka säkerheten eller förnya ditt hems estetik, kan vi hjälpa dig. Våra auktoriserade glasmästare har lång erfarenhet av att arbeta med olika typer av fönster, från moderna energiglas till klassiska träfönster. Vi ser till att arbetet utförs snabbt, säkert och med högsta kvalitet. Kontakta oss idag för en kostnadsfri offert och låt oss hjälpa dig att skapa ett hem som både känns och ser bättre ut!
 
 <b>Glas24 – En del av 24-nätverket Vi är stolta medlemmar i 24-nätverket, som har:</b>
