@@ -21,7 +21,6 @@ const CityPage = () => {
   const normalizedCity = normalizeCity(city);
   const content = cityContent[normalizedCity];
   
-  // Find the original city name from counties data
   const originalCity = Object.values(counties)
     .flat()
     .find(c => normalizeCity(c) === normalizedCity);
@@ -39,6 +38,15 @@ const CityPage = () => {
     return <Navigate to="/404" replace />;
   }
 
+  const processContent = (text: string) => {
+    const processedText = text.replace(/%city%/g, originalCity);
+    // Convert <h2> tags to div with the same styling as the main title
+    return processedText.replace(
+      /<h2>(.*?)<\/h2>/g, 
+      '<div class="text-2xl font-bold mb-4">$1</div>'
+    );
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <DocumentHead 
@@ -54,13 +62,13 @@ const CityPage = () => {
         <TrustSignals />
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="md:col-span-2 prose prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-8 max-w-none">
+          <div className="md:col-span-2">
             <h2 className="text-2xl font-bold mb-4">24/7 jourhavande glasmästare i {originalCity}</h2>
             <div className="space-y-6 text-lg leading-relaxed text-gray-700">
               {content.description.split('\n\n').map((paragraph, index) => (
-                <p 
+                <div 
                   key={index} 
-                  dangerouslySetInnerHTML={{ __html: paragraph.replace(/%city%/g, originalCity) }}
+                  dangerouslySetInnerHTML={{ __html: processContent(paragraph) }}
                   className="mb-6"
                 />
               ))}
