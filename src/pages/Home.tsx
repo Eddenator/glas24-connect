@@ -1,7 +1,6 @@
 import { ArrowRight, Clock, Shield, Map } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-
 const Home = () => {
   useEffect(() => {
     // Add structured data
@@ -21,15 +20,7 @@ const Home = () => {
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "opens": "00:00",
         "closes": "23:59"
       },
@@ -48,17 +39,13 @@ const Home = () => {
       document.head.removeChild(script);
     };
   }, []);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://s3.eu-west-1.amazonaws.com/storage.quickbutik.com/stores/28340q/files/glas.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative container mx-auto px-4 text-center text-white">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn">
-            Glasmästare i hela Sverige
-          </h1>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn">Glasmästare i hela Sverige.</h1>
           <p className="text-xl md:text-2xl mb-8 animate-fadeIn opacity-90">
             Professionell glasservice dygnet runt, året om
           </p>
@@ -112,17 +99,12 @@ const Home = () => {
           <p className="text-xl text-gray-600 mb-8">
             Vi finns tillgängliga i över 750 städer i Sverige
           </p>
-          <Link
-            to="/omraden"
-            className="glass-button inline-flex items-center space-x-2"
-          >
+          <Link to="/omraden" className="glass-button inline-flex items-center space-x-2">
             <span>Hitta din stad</span>
             <ArrowRight size={18} />
           </Link>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
